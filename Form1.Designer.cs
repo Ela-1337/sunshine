@@ -32,19 +32,19 @@
             this.Excel = new System.Windows.Forms.Button();
             this.Abfrage = new System.Windows.Forms.Button();
             this.Uhrzeit = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.UhrzeitTextBox = new System.Windows.Forms.TextBox();
+            this.IconBox = new System.Windows.Forms.PictureBox();
             this.Temp = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TemperaturTextBox = new System.Windows.Forms.TextBox();
             this.Wind = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.WindTextBox = new System.Windows.Forms.TextBox();
             this.windkmh = new System.Windows.Forms.Label();
             this.humidity = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.LuftfeuchteTextBox = new System.Windows.Forms.TextBox();
             this.GradC = new System.Windows.Forms.Label();
             this.Prozent = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.AbfrageAuswahlListe = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.IconBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Excel
@@ -55,7 +55,6 @@
             this.Excel.TabIndex = 1;
             this.Excel.Text = "Export starten";
             this.Excel.UseVisualStyleBackColor = true;
-            this.Excel.Click += new System.EventHandler(this.button1_Click);
             // 
             // Abfrage
             // 
@@ -65,7 +64,7 @@
             this.Abfrage.TabIndex = 2;
             this.Abfrage.Text = "Aktualisieren";
             this.Abfrage.UseVisualStyleBackColor = true;
-            this.Abfrage.Click += new System.EventHandler(this.button1_Click_1);
+            this.Abfrage.Click += new System.EventHandler(this.Abfrage_Click);
             // 
             // Uhrzeit
             // 
@@ -76,25 +75,23 @@
             this.Uhrzeit.Size = new System.Drawing.Size(101, 31);
             this.Uhrzeit.TabIndex = 3;
             this.Uhrzeit.Text = "Uhrzeit";
-            this.Uhrzeit.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox1
+            // UhrzeitTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(642, 51);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(186, 54);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.UhrzeitTextBox.Location = new System.Drawing.Point(642, 51);
+            this.UhrzeitTextBox.Multiline = true;
+            this.UhrzeitTextBox.Name = "UhrzeitTextBox";
+            this.UhrzeitTextBox.ReadOnly = true;
+            this.UhrzeitTextBox.Size = new System.Drawing.Size(186, 54);
+            this.UhrzeitTextBox.TabIndex = 4;
             // 
-            // pictureBox1
+            // IconBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(49, 159);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(336, 309);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.IconBox.Location = new System.Drawing.Point(49, 159);
+            this.IconBox.Name = "IconBox";
+            this.IconBox.Size = new System.Drawing.Size(336, 309);
+            this.IconBox.TabIndex = 5;
+            this.IconBox.TabStop = false;
             // 
             // Temp
             // 
@@ -106,14 +103,14 @@
             this.Temp.TabIndex = 6;
             this.Temp.Text = "Temperatur";
             // 
-            // textBox2
+            // TemperaturTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(642, 200);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(186, 54);
-            this.textBox2.TabIndex = 7;
+            this.TemperaturTextBox.Location = new System.Drawing.Point(642, 200);
+            this.TemperaturTextBox.Multiline = true;
+            this.TemperaturTextBox.Name = "TemperaturTextBox";
+            this.TemperaturTextBox.ReadOnly = true;
+            this.TemperaturTextBox.Size = new System.Drawing.Size(186, 54);
+            this.TemperaturTextBox.TabIndex = 7;
             // 
             // Wind
             // 
@@ -125,14 +122,14 @@
             this.Wind.TabIndex = 8;
             this.Wind.Text = "Wind";
             // 
-            // textBox3
+            // WindTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(642, 299);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(186, 54);
-            this.textBox3.TabIndex = 9;
+            this.WindTextBox.Location = new System.Drawing.Point(642, 299);
+            this.WindTextBox.Multiline = true;
+            this.WindTextBox.Name = "WindTextBox";
+            this.WindTextBox.ReadOnly = true;
+            this.WindTextBox.Size = new System.Drawing.Size(186, 54);
+            this.WindTextBox.TabIndex = 9;
             // 
             // windkmh
             // 
@@ -154,14 +151,14 @@
             this.humidity.TabIndex = 11;
             this.humidity.Text = "Luftfeuchte";
             // 
-            // textBox4
+            // LuftfeuchteTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(642, 384);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(186, 54);
-            this.textBox4.TabIndex = 12;
+            this.LuftfeuchteTextBox.Location = new System.Drawing.Point(642, 384);
+            this.LuftfeuchteTextBox.Multiline = true;
+            this.LuftfeuchteTextBox.Name = "LuftfeuchteTextBox";
+            this.LuftfeuchteTextBox.ReadOnly = true;
+            this.LuftfeuchteTextBox.Size = new System.Drawing.Size(186, 54);
+            this.LuftfeuchteTextBox.TabIndex = 12;
             // 
             // GradC
             // 
@@ -183,37 +180,38 @@
             this.Prozent.TabIndex = 14;
             this.Prozent.Text = "%";
             // 
-            // comboBox1
+            // AbfrageAuswahlListe
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.AbfrageAuswahlListe.FormattingEnabled = true;
+            this.AbfrageAuswahlListe.Items.AddRange(new object[] {
             "Germany",
             "Italy",
             "England",
             "Spain",
             "Japan"});
-            this.comboBox1.Location = new System.Drawing.Point(49, 51);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(336, 33);
-            this.comboBox1.TabIndex = 15;
+            this.AbfrageAuswahlListe.Location = new System.Drawing.Point(49, 51);
+            this.AbfrageAuswahlListe.Name = "AbfrageAuswahlListe";
+            this.AbfrageAuswahlListe.Size = new System.Drawing.Size(336, 33);
+            this.AbfrageAuswahlListe.TabIndex = 15;
+            this.AbfrageAuswahlListe.SelectedIndexChanged += new System.EventHandler(this.AbfrageAuswahlListe_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1007, 621);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.AbfrageAuswahlListe);
             this.Controls.Add(this.Prozent);
             this.Controls.Add(this.GradC);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.LuftfeuchteTextBox);
             this.Controls.Add(this.humidity);
             this.Controls.Add(this.windkmh);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.WindTextBox);
             this.Controls.Add(this.Wind);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.TemperaturTextBox);
             this.Controls.Add(this.Temp);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.IconBox);
+            this.Controls.Add(this.UhrzeitTextBox);
             this.Controls.Add(this.Uhrzeit);
             this.Controls.Add(this.Abfrage);
             this.Controls.Add(this.Excel);
@@ -221,7 +219,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BietigheimSunshine - Die Wetterabfrage";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IconBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,18 +229,18 @@
         private System.Windows.Forms.Button Excel;
         private System.Windows.Forms.Button Abfrage;
         private System.Windows.Forms.Label Uhrzeit;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox UhrzeitTextBox;
+        private System.Windows.Forms.PictureBox IconBox;
         private System.Windows.Forms.Label Temp;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TemperaturTextBox;
         private System.Windows.Forms.Label Wind;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox WindTextBox;
         private System.Windows.Forms.Label windkmh;
         private System.Windows.Forms.Label humidity;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox LuftfeuchteTextBox;
         private System.Windows.Forms.Label GradC;
         private System.Windows.Forms.Label Prozent;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox AbfrageAuswahlListe;
     }
 }
 

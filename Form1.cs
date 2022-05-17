@@ -12,35 +12,43 @@ namespace Bietigheim_Sunshine
 {
     public partial class Form1 : Form
     {
+       
         public Form1()
         {
             InitializeComponent();
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private async void Abfrage_Click(object sender, EventArgs e)
         {
+            // API.getWeatherbyCountry();
 
+            if (this.Anfrage_Land.Length == 0)
+            {
+                MessageBox.Show("Kein Land ausgewählt!");
+
+                return;
+            }
+
+            var result = await API.getWeatherbyCountry(this.Anfrage_Land);
+
+            UhrzeitTextBox.Text = result.location.localtime;
+            TemperaturTextBox.Text = result.current.temp_c.ToString();
+            WindTextBox.Text = result.current.wind_kph.ToString();
+            LuftfeuchteTextBox.Text = result.current.humidity.ToString();
+
+            IconBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            IconBox.Load("https:"+result.current.condition.icon);
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
 
+        private void AbfrageAuswahlListe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cmb = (ComboBox)sender;
+            this.Anfrage_Land = cmb.SelectedItem.ToString();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        private static readonly RestAPI API = new RestAPI("http://api.weatherapi.com/v1/current.json");
 
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        private string Anfrage_Land = "";
     }
 }
