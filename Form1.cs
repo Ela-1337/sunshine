@@ -38,6 +38,18 @@ namespace Bietigheim_Sunshine
 
             IconBox.SizeMode = PictureBoxSizeMode.StretchImage;
             IconBox.Load("https:"+result.current.condition.icon);
+
+            WeatherDBModel model = new WeatherDBModel {
+                APICallTime = DateTime.Now,
+                Country = this.Anfrage_Land,
+                City = result.location.name,
+                temp = result.current.temp_c,
+                wind = result.current.wind_kph,
+                humidity = result.current.humidity,
+                localtime = result.location.localtime
+                };
+
+            DBAccess.SetWeatherData(model);
         }
 
 
@@ -47,6 +59,7 @@ namespace Bietigheim_Sunshine
             this.Anfrage_Land = cmb.SelectedItem.ToString();
         }
 
+        private static readonly DBAccess DBAccess = new DBAccess();
         private static readonly RestAPI API = new RestAPI("http://api.weatherapi.com/v1/current.json");
 
         private string Anfrage_Land = "";
