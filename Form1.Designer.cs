@@ -55,6 +55,7 @@
             this.Excel.TabIndex = 1;
             this.Excel.Text = "Export starten";
             this.Excel.UseVisualStyleBackColor = true;
+            this.Excel.Click += new System.EventHandler(this.Excel_Click);
             // 
             // Abfrage
             // 

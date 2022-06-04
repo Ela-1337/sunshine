@@ -65,6 +65,40 @@ namespace Bietigheim_Sunshine
             adapter.Connection.Close();
         }
 
+        public List<WeatherDBModel> GetWeatherData()
+        {
+            var returnlist = new List<WeatherDBModel>();
+
+            adapter.Connection.Open();
+
+            var command = adapter.Connection.CreateCommand();
+            command.CommandText =
+                @"
+            SELECT * FROM WetterDatenTabelle
+            ";
+
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    var element = new WeatherDBModel();
+                    element.APICallTime = DateTime.Parse(reader.GetString(1));
+                    element.Country = reader.GetString(2);
+                    element.City = reader.GetString(3);
+                    element.temp = reader.GetDouble(4);
+                    element.wind = reader.GetDouble(5);
+                    element.humidity = reader.GetDouble(6);
+                    element.localtime = reader.GetString(7);
+
+                    returnlist.Add(element);
+                }
+            }
+
+            adapter.Connection.Close();
+
+            return returnlist;
+        }
+
         private static readonly DBAdapter adapter = new DBAdapter();
 
     }

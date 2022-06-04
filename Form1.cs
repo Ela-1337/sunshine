@@ -50,6 +50,13 @@ namespace Bietigheim_Sunshine
                 };
 
             DBAccess.SetWeatherData(model);
+
+        }
+
+        private void Excel_Click(object sender, EventArgs e)
+        {
+            ExcelRemoting.CreateExcel(DBAccess.GetWeatherData());
+            MessageBox.Show("Excel exportiert!");
         }
 
 
@@ -63,5 +70,7 @@ namespace Bietigheim_Sunshine
         private static readonly RestAPI API = new RestAPI("http://api.weatherapi.com/v1/current.json");
 
         private string Anfrage_Land = "";
+
+       
     }
 }

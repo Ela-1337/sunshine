@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bietigheim_Sunshine
 {
-    class WeatherDBModel
+    public class WeatherDBModel
     {
         public DateTime APICallTime { get; set; }
         public string Country { get; set; }
